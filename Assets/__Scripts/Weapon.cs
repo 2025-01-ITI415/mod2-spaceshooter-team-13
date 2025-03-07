@@ -18,6 +18,7 @@ public enum eWeaponType
 
     laser,      // [NI] Damage over time
     shield      // Raise shieldLevel
+    //part      // Potentially drops for level progression/ win
 }
 
 
