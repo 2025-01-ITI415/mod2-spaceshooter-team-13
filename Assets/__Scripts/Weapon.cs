@@ -64,6 +64,10 @@ public class Weapon : MonoBehaviour
     private GameObject weaponModel;
     private Transform shotPointTrans;
 
+    public AudioSource source;
+    public AudioClip clipBlaster;
+    public AudioClip clipSpread;
+
     void Start()
     {
         // Set up PROJECTILE_ANCHOR if it has not already been done
@@ -81,6 +85,10 @@ public class Weapon : MonoBehaviour
         // Find the fireEvent of a Hero Component in the parent hierarchy
         Hero hero = GetComponentInParent<Hero>();                              // e
         if (hero != null) hero.fireEvent += Fire;
+
+        
+        source = GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
     }
 
     public eWeaponType type
@@ -127,6 +135,7 @@ public class Weapon : MonoBehaviour
             case eWeaponType.blaster:
                 p = MakeProjectile();
                 p.vel = vel;
+                source.PlayOneShot(clipBlaster);
                 break;
 
             case eWeaponType.spread:                                         // l
@@ -138,6 +147,7 @@ public class Weapon : MonoBehaviour
                 p = MakeProjectile();
                 p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
                 p.vel = p.transform.rotation * vel;
+                source.PlayOneShot(clipSpread);
                 break;
 
         }

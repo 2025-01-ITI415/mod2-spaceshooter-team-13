@@ -20,8 +20,9 @@ public class Hero : MonoBehaviour
 
     public Text shieldLevelGT;
     public Text weaponTypeGT;
-    
 
+    public AudioSource source;
+    public AudioClip clipShield;
 
     [Header("Dynamic")]
     [Range(0, 4)]
@@ -53,6 +54,8 @@ public class Hero : MonoBehaviour
 
         weaponTypeGT.text = "CURRENT WEAPON: blaster";
         shieldLevelGT.text = "SHIELD LEVEL: " + shieldLevel.ToString();
+
+        source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -114,6 +117,7 @@ public class Hero : MonoBehaviour
         if (enemy != null)
         {  // If the shield was triggered by an enemy
             shieldLevel--;        // Decrease the level of the shield by 1
+            source.PlayOneShot(clipShield);
             shieldLevelGT.text = "SHIELD LEVEL: " + shieldLevel.ToString();
 
             Destroy(go);          // … and Destroy the enemy                  // f
