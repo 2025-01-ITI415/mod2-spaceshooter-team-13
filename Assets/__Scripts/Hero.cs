@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public class Hero : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class Hero : MonoBehaviour
     public GameObject projectilePrefab;
     public float projectileSpeed = 40;
     public Weapon[] weapons;
+
+    public Text shieldLevelGT;
 
     [Header("Dynamic")]
     [Range(0, 4)]
@@ -45,6 +49,8 @@ public class Hero : MonoBehaviour
         // Reset the weapons to start _Hero with 1 blaster
         ClearWeapons();
         weapons[0].SetType(eWeaponType.blaster);
+
+        shieldLevelGT.text = "SHIELD LEVEL: " + shieldLevel.ToString();
     }
 
     void Update()
@@ -73,8 +79,7 @@ public class Hero : MonoBehaviour
         {
             fireEvent();
         }
-
-    }
+}
 
 
     //void TempFire()
@@ -107,6 +112,8 @@ public class Hero : MonoBehaviour
         if (enemy != null)
         {  // If the shield was triggered by an enemy
             shieldLevel--;        // Decrease the level of the shield by 1
+            shieldLevelGT.text = "SHIELD LEVEL: " + shieldLevel.ToString();
+
             Destroy(go);          // … and Destroy the enemy                  // f
         }
         else if (pUp != null)
@@ -125,6 +132,7 @@ public class Hero : MonoBehaviour
         private set
         {                                                         // c
             _shieldLevel = Mathf.Min(value, 4);                             // d
+            shieldLevelGT.text = "SHIELD LEVEL: " + shieldLevel.ToString();
             // If the shield is going to be set to less than zero…
             if (value < 0)
             {                                                  // e
