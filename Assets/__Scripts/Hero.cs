@@ -19,6 +19,9 @@ public class Hero : MonoBehaviour
     public Weapon[] weapons;
 
     public Text shieldLevelGT;
+    public Text weaponTypeGT;
+    
+
 
     [Header("Dynamic")]
     [Range(0, 4)]
@@ -31,8 +34,6 @@ public class Hero : MonoBehaviour
     // Declare a new delegate type WeaponFireDelegate
     public delegate void WeaponFireDelegate();                                // a     // Create a WeaponFireDelegate event named fireEvent.
     public event WeaponFireDelegate fireEvent;
-
-
 
     void Awake()
     {
@@ -50,6 +51,7 @@ public class Hero : MonoBehaviour
         ClearWeapons();
         weapons[0].SetType(eWeaponType.blaster);
 
+        weaponTypeGT.text = "CURRENT WEAPON: blaster";
         shieldLevelGT.text = "SHIELD LEVEL: " + shieldLevel.ToString();
     }
 
@@ -176,6 +178,7 @@ public class Hero : MonoBehaviour
         {
             case eWeaponType.shield:                                              // a 
                 shieldLevel++;
+                shieldLevelGT.text = "SHIELD LEVEL: " + shieldLevel.ToString();
                 break;
 
             default:                                                             // b
@@ -192,6 +195,7 @@ public class Hero : MonoBehaviour
                 { // If this is a different weapon type                   // d
                     ClearWeapons();
                     weapons[0].SetType(pUp.type);
+                    weaponTypeGT.text = "CURRENT WEAPON: " + (pUp.type).ToString();
                 }
                 break;
 
