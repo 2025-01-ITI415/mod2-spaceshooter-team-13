@@ -13,7 +13,7 @@ public class Main : MonoBehaviour
     [Header("Inscribed")]
     public bool spawnEnemies = true;
     public GameObject[] prefabEnemies;               // Array of Enemy prefabs
-    public float enemySpawnPerSecond = 0.5f;  // # Enemies spawned/second
+    public float enemySpawnPerSecond = 1f;  // # Enemies spawned/second
     public float enemyInsetDefault = 1.5f;    // Inset from the sides
     public float gameRestartDelay = 2.0f;
     public GameObject prefabPowerUp;

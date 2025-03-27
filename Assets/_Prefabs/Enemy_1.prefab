@@ -97,6 +97,7 @@ MonoBehaviour:
   fireRate: 0.3
   health: 10
   score: 100
+  powerUpDropChance: 1
   waveFrequency: 2
   waveWidth: 4
   waveRotY: 45
