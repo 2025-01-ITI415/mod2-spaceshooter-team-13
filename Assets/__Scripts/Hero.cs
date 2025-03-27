@@ -29,6 +29,9 @@ public class Hero : MonoBehaviour
     [Range(0, 4)]
     [SerializeField]                                        // b
     private float _shieldLevel = 1;
+    //new code***
+    private int spaceshipPartsCollected = 0;
+    private float damageBoost = 0f;
 
     [Tooltip("This field holds a reference to the last triggering GameObject")]
     private GameObject lastTriggerGo = null;
@@ -110,7 +113,15 @@ public class Hero : MonoBehaviour
 
         // Make sure it’s not the same triggering go as last time
         if (go == lastTriggerGo) return;                                    // c
-        lastTriggerGo = go;                                                   // d
+        lastTriggerGo = go;  
+        
+        SpaceshipPart part = go.GetComponent<SpaceshipPart>();
+        if (part != null)
+        {
+    
+            return;
+        }
+                                                 // d
 
         Enemy enemy = go.GetComponent<Enemy>();                               // e
         PowerUp pUp = go.GetComponent<PowerUp>();
@@ -132,6 +143,30 @@ public class Hero : MonoBehaviour
             Debug.LogWarning("Shield trigger hit by non-Enemy: " + go.name);    // g
         }
     }
+
+    //NEW CODE STARTS
+    public void CollectPart()
+    {
+     spaceshipPartsCollected++;
+     Debug.Log("Collected part: " + spaceshipPartsCollected);
+    if (spaceshipPartsCollected >= 4)
+        {
+           Main.HERO_WON();
+        }
+    }
+    public void BoostWeaponDamage()
+    {
+        damageBoost += 1f;
+        Debug.Log("Damage Boosted! Current bonus: " + damageBoost);
+        foreach (Weapon w in weapons)
+        {
+            if (w.type != eWeaponType.none)
+            {
+                w.def.damageOnHit += 1f;
+            }
+        }
+    }
+    //NEW CODE ENDS
 
     public float shieldLevel
     {

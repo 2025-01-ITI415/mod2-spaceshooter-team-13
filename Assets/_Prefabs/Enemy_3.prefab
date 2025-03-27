@@ -120,6 +120,7 @@ MonoBehaviour:
   health: 10
   score: 100
   powerUpDropChance: 1
+  spaceshipPartPrefab: {fileID: 4340904055459977578, guid: 0f54946b689906648b2ae794bb96c088, type: 3}
   lifeTime: 5
   midpointYRange: {x: 1.5, y: 3}
   drawDebugInfo: 1

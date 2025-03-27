@@ -94,7 +94,19 @@ public class Main : MonoBehaviour
     static public void HERO_DIED()
     {
         S.DelayedRestart();                                                  // b
+    } 
+
+    public void GameOver()
+    {
+        Debug.Log("All parts collected, you won!");
+        spawnEnemies = false;
+        Time.timeScale = 0f;
     }
+
+    public static void HERO_WON()
+{
+    S.GameOver();
+}
 
     /// <summary>
     /// Static function that gets a WeaponDefinition from the WEAP_DICT static
