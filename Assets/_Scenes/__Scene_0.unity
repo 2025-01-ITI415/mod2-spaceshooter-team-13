@@ -684,7 +684,7 @@ MonoBehaviour:
   weaponTypeGT: {fileID: 1763365820}
   source: {fileID: 0}
   clipShield: {fileID: 8300000, guid: 0bd4182da49a0274ab2abd8833c73a91, type: 3}
-  clipCollect: {fileID: 8300000, guid: 7d6c33421b88d8249bee2aef997ca2e8, type: 3}
+  clipCollect: {fileID: 8300000, guid: 879a93de6747eb04182e11d239594726, type: 3}
   _shieldLevel: 2
 --- !u!114 &930863984
 MonoBehaviour:
@@ -810,7 +810,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 873508028087979150, guid: 518e967b0add9fa4ca35f07c4c03ce8c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 7d6c33421b88d8249bee2aef997ca2e8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 879a93de6747eb04182e11d239594726, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
