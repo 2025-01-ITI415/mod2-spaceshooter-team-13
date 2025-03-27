@@ -57,6 +57,9 @@ public class Enemy : MonoBehaviour
         pos = tempPos;
     }
 
+    public GameObject spaceshipPartPrefab;
+    static int enemyKillCount = 0;
+
     void OnCollisionEnter(Collision coll)
     {
         GameObject otherGO = coll.gameObject;
@@ -76,6 +79,19 @@ public class Enemy : MonoBehaviour
                     {
                         calledShipDestroyed = true;
                         Main.SHIP_DESTROYED(this);
+                        //implemented code
+                        enemyKillCount++;
+                    if (enemyKillCount % 15 == 0 && Hero.S != null)
+                    {
+                        Hero.S.BoostWeaponDamage();
+                    }
+
+                    if (spaceshipPartPrefab != null && Random.value < 0.25f)
+                    {
+                        GameObject part = Instantiate(spaceshipPartPrefab);
+                        part.transform.position = transform.position;
+                    }
+                     //implemented code ends
                     }
                     // Destroy this Enemy
                     Destroy(this.gameObject);
