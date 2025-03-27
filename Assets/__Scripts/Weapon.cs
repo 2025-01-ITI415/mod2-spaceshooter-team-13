@@ -88,7 +88,7 @@ public class Weapon : MonoBehaviour
 
         
         source = GetComponent<AudioSource>();
-        source = GetComponent<AudioSource>();
+        
     }
 
     public eWeaponType type

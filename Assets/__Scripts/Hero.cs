@@ -23,6 +23,7 @@ public class Hero : MonoBehaviour
 
     public AudioSource source;
     public AudioClip clipShield;
+    public AudioClip clipCollect;
 
     [Header("Dynamic")]
     [Range(0, 4)]
@@ -177,6 +178,7 @@ public class Hero : MonoBehaviour
 
     public void AbsorbPowerUp(PowerUp pUp)
     {
+        source.PlayOneShot(clipCollect);
         Debug.Log("Absorbed PowerUp: " + pUp.type);                         // b
         switch (pUp.type)
         {
