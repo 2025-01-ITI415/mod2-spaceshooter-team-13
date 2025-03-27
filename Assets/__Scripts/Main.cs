@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;   // Enables the loading & reloading of scenes
 
@@ -23,6 +24,9 @@ public class Main : MonoBehaviour
                                      eWeaponType.spread,  eWeaponType.shield };
     private BoundsCheck bndCheck;
 
+    public AudioSource source;
+    public AudioClip clipDeath;
+
     void Awake()
     {
         S = this;
@@ -40,6 +44,7 @@ public class Main : MonoBehaviour
             WEAP_DICT[def.type] = def;
         }
 
+        source = GetComponent<AudioSource>();
     }
 
     public void SpawnEnemy()
@@ -117,6 +122,8 @@ public class Main : MonoBehaviour
     /// <param name="e"The Enemy that was destroyed</param
     static public void SHIP_DESTROYED(Enemy e)
     {
+        S.source.PlayOneShot(S.clipDeath);
+        
         // Potentially generate a PowerUp
         if (Random.value <= e.powerUpDropChance)
         { // Underlined red for now  // c
