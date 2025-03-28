@@ -98,7 +98,7 @@ public class Main : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("All parts collected, you won!");
+        UnityEngine.Debug.Log("All parts collected, you won!");
         spawnEnemies = false;
         Time.timeScale = 0f;
     }
