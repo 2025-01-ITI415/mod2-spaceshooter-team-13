@@ -107,8 +107,9 @@ public class Hero : MonoBehaviour
         SpaceshipPart part = go.GetComponent<SpaceshipPart>();
         if (part != null)
         {
-    
-            return;
+           Debug.Log("Spaceship part collected by Hero."); 
+            CollectPart();
+            Destroy(part.gameObject);
         }
                                                  // d
 

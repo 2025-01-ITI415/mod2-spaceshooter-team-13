@@ -740,6 +740,7 @@ MonoBehaviour:
   enemyInsetDefault: 1.5
   gameRestartDelay: 2
   prefabPowerUp: {fileID: 4340904055459977578, guid: 5a8ff8aaddd9f480fb6c6a9b3e550a12, type: 3}
+  spaceshipPartPrefab: {fileID: 4340904055459977578, guid: 0f54946b689906648b2ae794bb96c088, type: 3}
   weaponDefinitions:
   - type: 1
     letter: B

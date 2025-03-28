@@ -60,6 +60,8 @@ public class Enemy : MonoBehaviour
     public GameObject spaceshipPartPrefab;
     static int enemyKillCount = 0;
 
+    //enemyKillCount can also be used as a way to track player score
+
     void OnCollisionEnter(Collision coll)
     {
         GameObject otherGO = coll.gameObject;
@@ -81,7 +83,7 @@ public class Enemy : MonoBehaviour
                         Main.SHIP_DESTROYED(this);
                         //implemented code
                         enemyKillCount++;
-                    if (enemyKillCount % 15 == 0 && Hero.S != null)
+                    if (enemyKillCount % 5 == 0 && Hero.S != null)
                     {
                         Hero.S.BoostWeaponDamage();
                     }

@@ -17,6 +17,7 @@ public class Main : MonoBehaviour
     public float enemyInsetDefault = 1.5f;    // Inset from the sides
     public float gameRestartDelay = 2.0f;
     public GameObject prefabPowerUp;
+    public GameObject spaceshipPartPrefab;
     public WeaponDefinition[] weaponDefinitions;
     public eWeaponType[] powerUpFrequency = new eWeaponType[] {        
                                      eWeaponType.blaster, eWeaponType.blaster,
