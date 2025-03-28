@@ -21,6 +21,7 @@ public class Hero : MonoBehaviour
     public Text shieldLevelGT;
     public Text weaponTypeGT;
     public Text loseTextGT;
+    public Text pieceTextGT;
 
     public AudioSource source;
     public AudioClip clipShield;
@@ -60,6 +61,7 @@ public class Hero : MonoBehaviour
         weaponTypeGT.text = "CURRENT WEAPON: blaster";
         shieldLevelGT.text = "SHIELD LEVEL: " + shieldLevel.ToString();
         loseTextGT.text = "";
+        pieceTextGT.text = "PIECES COLLECTED: 0/4";
 
         source = GetComponent<AudioSource>();
     }
@@ -150,9 +152,10 @@ public class Hero : MonoBehaviour
     //NEW CODE STARTS
     public void CollectPart()
     {
-     spaceshipPartsCollected++;
-     Debug.Log("Collected part: " + spaceshipPartsCollected);
-    if (spaceshipPartsCollected >= 4)
+        spaceshipPartsCollected++;
+        pieceTextGT.text = "PIECES COLLECTED: " + spaceshipPartsCollected.ToString() + "/4";
+        Debug.Log("Collected part: " + spaceshipPartsCollected);
+        if (spaceshipPartsCollected >= 4)
         {
            Main.HERO_WON();
         }
