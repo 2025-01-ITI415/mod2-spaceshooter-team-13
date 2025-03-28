@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
-using UnityEngine.SceneManagement;   // Enables the loading & reloading of scenes
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;   // Enables the loading & reloading of scenes
 
 [RequireComponent(typeof(BoundsCheck))]
 public class Main : MonoBehaviour
@@ -28,8 +29,11 @@ public class Main : MonoBehaviour
     public AudioSource source;
     public AudioClip clipDeath;
 
+    public Text winTextGT;
+
     void Awake()
     {
+        winTextGT.text = "";
         S = this;
         // Set bndCheck to reference the BoundsCheck component on this 
         // GameObject
@@ -99,7 +103,7 @@ public class Main : MonoBehaviour
 
     public void GameOver()
     {
-        UnityEngine.Debug.Log("All parts collected, you won!");
+        winTextGT.text = "YOU WIN!";
         spawnEnemies = false;
         Time.timeScale = 0f;
     }

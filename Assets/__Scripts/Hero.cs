@@ -20,6 +20,7 @@ public class Hero : MonoBehaviour
 
     public Text shieldLevelGT;
     public Text weaponTypeGT;
+    public Text loseTextGT;
 
     public AudioSource source;
     public AudioClip clipShield;
@@ -58,6 +59,7 @@ public class Hero : MonoBehaviour
 
         weaponTypeGT.text = "CURRENT WEAPON: blaster";
         shieldLevelGT.text = "SHIELD LEVEL: " + shieldLevel.ToString();
+        loseTextGT.text = "";
 
         source = GetComponent<AudioSource>();
     }
@@ -180,6 +182,7 @@ public class Hero : MonoBehaviour
             if (value < 0)
             {                                                  // e
                 Destroy(this.gameObject);  // Destroy the Hero
+                loseTextGT.text = "YOU LOSE";
                 Main.HERO_DIED();
             }
         }
